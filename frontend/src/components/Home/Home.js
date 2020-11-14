@@ -216,7 +216,11 @@ export default class Home extends Component {
                             localStorage.getItem("isAuthenticated") ? (
                               <div>
                                 <Link to={`rooms/${item.id}`}>
-                                  <Button variant="outlined" color="primary" style={{float: "right"}}>
+                                  <Button
+                                    variant="outlined"
+                                    color="primary"
+                                    style={{ float: "right" }}
+                                  >
                                     Enter
                                   </Button>
                                 </Link>
@@ -224,12 +228,18 @@ export default class Home extends Component {
                             ) : localStorage.getItem("isAuthenticated") ? (
                               <Button
                                 variant="outlined"
+                                color="primary"
+                                style={{ float: "right" }}
                                 onClick={() => this.room_enroll(item.id)}
                               >
                                 Enroll
                               </Button>
                             ) : (
-                              <Button variant="outlined" color="primary" style={{float: "right"}}>
+                              <Button
+                                variant="outlined"
+                                color="primary"
+                                style={{ float: "right" }}
+                              >
                                 Enroll
                               </Button>
                             )}
@@ -242,7 +252,7 @@ export default class Home extends Component {
                   )}
                 </Slider>
                 <div className="d-flex justify-content-center">
-                  <Button color="primary" style={{marginTop: "40px"}}>
+                  <Button color="primary" style={{ marginTop: "40px" }}>
                     <Link to={`/homerooms/${iitem.id}`}>See More</Link>
                   </Button>
                 </div>
