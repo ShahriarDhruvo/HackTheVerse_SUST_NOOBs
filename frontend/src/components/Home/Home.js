@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Button from '@material-ui/core/Button';
 import "./Home.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -191,101 +191,98 @@ export default class Home extends Component {
         let deptcoursel;
         if (Object.keys(this.state.dept).length > 0) {
             deptcoursel = this.state.dept.map((iitem, i) => (
-                <div key={iitem.id}>
-                    <h3 className="dept__name">{iitem.name}</h3>
-                    <style>{cssstyle}</style>
-                    <Slider {...settings}>
-                        {this.state.rooms[iitem.id] ? 
-                        (
-                            this.state.rooms[iitem.id].map((item) => (
-                                <div key={item.id}>
-                                    <Card className="course">
-                                        <Card.Body>
-                                            <Card.Title className="course__name">
-                                                {item.course.split(",")[0]}
-                                            </Card.Title>
-                                            <Card.Subtitle className="mb-2 text-muted">
-                                                {item.course.split(",")[1]}
-                                            </Card.Subtitle>
-                                            {this.state.enrolled_rooms_id.includes(item.id) && localStorage.getItem('isAuthenticated') ? 
-                                            (
-                                                <div>
-                                                    <Link to={`rooms/${item.id}`}>
-                                                        <Button variant="outline-primary">
-                                                            Enter
-                                                        </Button>
-                                                    </Link>
-                                                </div>
-                                            ) : 
-                                            localStorage.getItem('isAuthenticated') ? 
-                                            (
-                                               <Button variant="outline-primary" onClick={() => this.room_enroll(item.id)}>
-                                                    Enroll
-                                                </Button>
-                                            ): 
-                                            (
-                                                <Button variant="outline-primary">
-                                                    Enroll
-                                                </Button>
-                                            )
-                                            }                                   
-                                        </Card.Body>
-                                    </Card>
-                                </div>
-                            ))
-                        ) : (
-                            <div>
-                               
-                            </div>
-                        )}
-                    </Slider>
-                    <div>
-                        <Link
-                            to={`/homerooms/${iitem.id}`}
-                            style={{ float: "right" }}
-                        >
-                            <p>See More...</p>
-                        </Link>
-                    </div>
+              <div key={iitem.id}>
+                <h3 className="dept__name">{iitem.name}</h3>
+                <style>{cssstyle}</style>
+                <Slider {...settings}>
+                  {this.state.rooms[iitem.id] ? (
+                    this.state.rooms[iitem.id].map((item) => (
+                      <div key={item.id}>
+                        <Card className="course" border="primary">
+                          <Card.Body>
+                            <Card.Title className="course__name">
+                              {item.course.split(",")[0]}
+                            </Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">
+                              {item.course.split(",")[1]}
+                            </Card.Subtitle>
+                            {this.state.enrolled_rooms_id.includes(item.id) &&
+                            localStorage.getItem("isAuthenticated") ? (
+                              <div>
+                                <Link to={`rooms/${item.id}`}>
+                                  <Button variant="outlined" color="primary" style={{float: "right"}}>
+                                    Enter
+                                  </Button>
+                                </Link>
+                              </div>
+                            ) : localStorage.getItem("isAuthenticated") ? (
+                              <Button
+                                variant="outlined"
+                                onClick={() => this.room_enroll(item.id)}
+                              >
+                                Enroll
+                              </Button>
+                            ) : (
+                              <Button variant="outlined" color="primary" style={{float: "right"}}>
+                                Enroll
+                              </Button>
+                            )}
+                          </Card.Body>
+                        </Card>
+                      </div>
+                    ))
+                  ) : (
+                    <div></div>
+                  )}
+                </Slider>
+                <div className="d-flex justify-content-center">
+                  <Button color="primary" style={{marginTop: "40px"}}>
+                    <Link to={`/homerooms/${iitem.id}`}>See More</Link>
+                  </Button>
                 </div>
+              </div>
             ));
         }
 
         /*let deptcoursel_authenticate;
         if(localStorage.getItem('dept_id')){
             let dept_id = localStorage.getItem('dept_id');
-            if(this.state.rooms[dept_id]) (
-                deptcoursel_authenticate = 
-                <div>
+            if(this.state.rooms[dept_id]) deptcoursel_authenticate = (
+              <div>
                 <style>{cssstyle}</style>
-                <h3 className="dept__name">{localStorage.getItem('dept_name')}</h3>
+                <h3 className="dept__name">
+                  {localStorage.getItem("dept_name")}
+                </h3>
                 <Slider {...settings}>
-                {this.state.rooms[dept_id].map((item) => (
+                  {this.state.rooms[dept_id].map((item) => (
                     <div key={item}>
-                            <Card className="course">
-                                <Card.Body>
-                                    <Card.Title className="course__name">
-                                        {item.course.split(",")[0]}
-                                    </Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">
-                                        {item.course.split(",")[1]}
-                                    </Card.Subtitle>
-                                    <Button variant="outline-primary"  >
-                                        Enroll
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                    </div>
-                ))}
-                </Slider>
-                <div>
-                        <Link
-                            to={`/homerooms/${localStorage.getItem('dept_id')}`}
+                      <Card border="primary" className="course">
+                        <Card.Body>
+                          <Card.Title className="course__name">
+                            {item.course.split(",")[0]}
+                          </Card.Title>
+                          <Card.Subtitle className="text-muted">
+                            {item.course.split(",")[1]}
+                          </Card.Subtitle>
+                          <Button
+                            variant="outlined"
+                            color="primary"
                             style={{ float: "right" }}
-                        >
-                            <p>See More...</p>
-                        </Link>
+                          >
+                            Enroll
+                          </Button>{" "}
+                          EDIT
+                        </Card.Body>
+                      </Card>
                     </div>
+                  ))}
+                </Slider>
+                <div className="d-flex justify-content-center">
+                  <Button color="primary" style={{ marginTop: "40px" }}>
+                    <Link to={`/homerooms/${localStorage.getItem("dept_id")}`}>
+                      See More
+                    </Link>
+                  </Button>
                 </div>
             )
         }*/
