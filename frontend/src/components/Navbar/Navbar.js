@@ -58,7 +58,7 @@ const Navs = () => {
             ) : (
                 <Nav className="ml-auto">
                     {/* Unity simulation */}
-                    <NavLink to="/demo/simulation" className="mr-2">
+                    <NavLink to="/simulation/" className="mr-2">
                         <FontAwesomeIcon
                             className="mt-2 p-0 mr-1"
                             icon={["fab", "unity"]}
