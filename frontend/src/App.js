@@ -26,6 +26,10 @@ import CellSimulation from "./Simulations/CellSimulation";
 // import Footer from "./components/generic/Footer";
 
 import Footer from "./components/Footer/Footer";
+import Simulations from "./Simulations/Simulations";
+import BiologySimulations from "./Simulations/BiologySimulations";
+import PhysicsSimulations from "./Simulations/PhysicsSimulations";
+import ChemistrySimulations from "./Simulations/ChemistrySimulations";
 
 library.add(far, fas, fab);
 
@@ -74,8 +78,32 @@ function App() {
 
                         <Route
                             exact
-                            path="/demo/simulation"
+                            path="/simulation"
+                            component={Simulations}
+                        />
+
+                        <Route
+                            exact
+                            path="/simulation/biology/"
+                            component={BiologySimulations}
+                        />
+
+                        <Route
+                            exact
+                            path="/simulation/biology/cell/simulation/"
                             component={CellSimulation}
+                        />
+
+                        <Route
+                            exact
+                            path="/simulation/physics/"
+                            component={PhysicsSimulations}
+                        />
+
+                        <Route
+                            exact
+                            path="/simulation/chemistry/"
+                            component={ChemistrySimulations}
                         />
 
                         <Route component={NotFound} />
