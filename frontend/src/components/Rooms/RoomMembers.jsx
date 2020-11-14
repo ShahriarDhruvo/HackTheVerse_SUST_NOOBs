@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RoomMembers = (props) => {
     const [status, setStatus] = useState(undefined);
+    const [flag, setFlag] = useState(Math.random());
     const [members, setMembers] = useState({
         owner: "",
         class_representatives: [],
@@ -38,7 +39,7 @@ const RoomMembers = (props) => {
         };
 
         loadData();
-    }, [props.room_pk]);
+    }, [props.room_pk, flag]);
 
     // Pending user's list
     useEffect(() => {
@@ -57,6 +58,8 @@ const RoomMembers = (props) => {
 
         if (localStorage.getItem("status") !== "2" || isCR) loadData();
     }, [isCR]);
+
+    const updateFlag = () => setFlag(Math.random());
 
     const handleAddPendingUser = (pending_request_pk, username, userstatus) => {
         let API_URL = `/api/v1/rooms/add/${props.room_pk}/${userstatus}/${username}/`;
@@ -84,6 +87,7 @@ const RoomMembers = (props) => {
         };
 
         loadData();
+        updateFlag();
     };
 
     const handleRemovePendingUser = (pending_request_pk) => {
@@ -101,6 +105,7 @@ const RoomMembers = (props) => {
         };
 
         loadData();
+        updateFlag();
     };
 
     const handleAddMember = (username, userstatus) => {
@@ -118,6 +123,7 @@ const RoomMembers = (props) => {
         };
 
         loadData();
+        updateFlag();
     };
 
     const handleRemoveMember = (username, userstatus) => {
@@ -135,6 +141,7 @@ const RoomMembers = (props) => {
         };
 
         loadData();
+        updateFlag();
     };
 
     return (
