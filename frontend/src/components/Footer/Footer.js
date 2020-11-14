@@ -10,66 +10,46 @@ function Footer() {
         <div className="row  justify-content-center">
           <div className="col-auto">
             <Link to={`/`}>
-              <img
-                src={"/static/img/github.png"}
-                width={"40"}
-                height={"40"}
-                className={"d-inline-block align-top"}
-                className="github"
-                alt={"logo"}
+              <FontAwesomeIcon
+                style={{ fontSize: "40px", color: "#FFFCF7" }}
+                icon={["fab", "github"]}
               />
             </Link>
           </div>
           <div className="col-auto">
             <Link to={`/`}>
-              <img
-                src={"/static/img/linkedin.png"}
-                width={"40"}
-                height={"40"}
-                className={"d-inline-block align-top"}
-                className="github"
-                alt={"logo"}
+            <FontAwesomeIcon
+                style={{ fontSize: "40px", color: "#FFFCF7" }}
+                icon={["fab", "linkedin"]}
               />
             </Link>
           </div>
           <div className="col-auto">
             <Link to={`/`}>
-              <img
-                src={"/static/img/stackoverflow.png"}
-                width={"40"}
-                height={"40"}
-                className={"d-inline-block align-top"}
-                className="github"
-                alt={"logo"}
+            <FontAwesomeIcon
+                style={{ fontSize: "40px", color: "#FFFCF7" }}
+                icon={["fab", "stack-overflow"]}
               />
             </Link>
           </div>
           <div className="col-auto">
             <Link to={`/`}>
-              <img
-                src={"/static/img/facebook.png"}
-                width={"40"}
-                height={"40"}
-                className={"d-inline-block align-top"}
-                className="github"
-                alt={"logo"}
+            <FontAwesomeIcon
+                style={{ fontSize: "40px", color: "#FFFCF7" }}
+                icon={["fab", "facebook-square"]}
               />
             </Link>
           </div>
           <div className="col-auto">
             <Link to={`/`}>
-              <img
-                src={"/static/img/twitter.png"}
-                width={"40"}
-                height={"40"}
-                className={"d-inline-block align-top"}
-                className="github"
-                alt={"logo"}
+            <FontAwesomeIcon
+                style={{ fontSize: "40px", color: "#FFFCF7" }}
+                icon={["fab", "twitter"]}
               />
             </Link>
           </div>
         </div>
-        <hr />
+        <hr style={{backgroundColor:"#FFFCF7"}} />
         <div className="row justify-content-center">
           <div>
             <p>

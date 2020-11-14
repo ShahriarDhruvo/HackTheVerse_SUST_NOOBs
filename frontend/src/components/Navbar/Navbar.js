@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
@@ -58,7 +58,7 @@ const Navs = () => {
             ) : (
                 <Nav className="ml-auto">
                     {/* Unity simulation */}
-                    <NavLink to="/demo/simulation" className="mr-2">
+                    <NavLink to="/simulation/" className="mr-2">
                         <FontAwesomeIcon
                             className="mt-2 p-0 mr-1"
                             icon={["fab", "unity"]}
