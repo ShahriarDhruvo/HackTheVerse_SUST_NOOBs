@@ -198,7 +198,7 @@ export default class Home extends Component {
         let deptcoursel;
         if (Object.keys(this.state.dept).length > 0) {
             deptcoursel = this.state.dept.map((iitem, i) => (
-                <div key={iitem.id}>
+                <div className="#container" key={iitem.id}>
                     <h3 className="dept__name">{iitem.name}</h3>
                     <style>{cssstyle}</style>
                     <Slider {...settings}>
@@ -263,7 +263,7 @@ export default class Home extends Component {
             let dept_id = localStorage.getItem('dept_id');
             if(this.state.rooms[dept_id]) (
                 deptcoursel_authenticate = 
-                <div>
+                <div id="container">
                 <style>{cssstyle}</style>
                 <h3 className="dept__name">{localStorage.getItem('dept_name')}</h3>
                 <Slider {...settings}>
@@ -299,7 +299,7 @@ export default class Home extends Component {
         
 
         return (
-            <div>
+            <div id="container">
                 {this.state.rooms &&
                 Object.keys(this.state.rooms).length > 0 ? (
                     <div>
@@ -311,7 +311,7 @@ export default class Home extends Component {
                     </div>
                 ) : (
                     // enrolled courses will be shown here:
-                    <div>
+                    <div className="#container">
                        
                     </div>
                 )}

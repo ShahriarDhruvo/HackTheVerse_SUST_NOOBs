@@ -1,45 +1,89 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link} from "react-router-dom";
+import "./Footer.css";
 
-
-const FooterPage = () => {
+function Footer() {
   return (
-    <MDBFooter color="blue" className="font-small pt-4 mt-4">
-      <MDBContainer fluid className="text-center text-md-left">
-        <MDBRow>
-          <MDBCol md="6">
-            <h5 className="title">Footer Content</h5>
+    <div className="main-footer">
+      <div className="container">
+        <div className="row  justify-content-center">
+          <div className="col-sm-6">
+            <div className="row">
+              <div className="col">
+                <Link to={`/`}>
+                  <img
+                    src={"/static/img/github.png"}
+                    width={"40"}
+                    height={"40"}
+                    className={"d-inline-block align-top"}
+                    className="github"
+                    alt={"logo"}
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to={`/`}>
+                  <img
+                    src={"/static/img/linkedin.png"}
+                    width={"40"}
+                    height={"40"}
+                    className={"d-inline-block align-top"}
+                    className="github"
+                    alt={"logo"}
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to={`/`}>
+                  <img
+                    src={"/static/img/stackoverflow.png"}
+                    width={"40"}
+                    height={"40"}
+                    className={"d-inline-block align-top"}
+                    className="github"
+                    alt={"logo"}
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to={`/`}>
+                  <img
+                    src={"/static/img/facebook.png"}
+                    width={"40"}
+                    height={"40"}
+                    className={"d-inline-block align-top"}
+                    className="github"
+                    alt={"logo"}
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to={`/`}>
+                  <img
+                    src={"/static/img/twitter.png"}
+                    width={"40"}
+                    height={"40"}
+                    className={"d-inline-block align-top"}
+                    className="github"
+                    alt={"logo"}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="row justify-content-center">
+          <div>
             <p>
-              Here you can use rows and columns here to organize your footer
-              content.
+              Copyright &copy;{new Date().getFullYear()} | All rights reserved
             </p>
-          </MDBCol>
-          <MDBCol md="6">
-            <h5 className="title">Links</h5>
-            <ul>
-              <li className="list-unstyled">
-                <a href="#!">Link 1</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 2</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-      <div className="footer-copyright text-center py-3">
-        <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
-        </MDBContainer>
+          </div>
+        </div>
       </div>
-    </MDBFooter>
+    </div>
   );
 }
 
-export default FooterPage;
+export default Footer;
