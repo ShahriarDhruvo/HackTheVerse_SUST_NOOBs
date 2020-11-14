@@ -102,8 +102,8 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': 'du_hackathon',
         # 'USER': 'postgres',
-        # #'PASSWORD': '2369',
-        # 'PASSWORD': 'emonsust',
+        # 'PASSWORD': '2369',
+        # # 'PASSWORD': 'emonsust',
         # 'HOST': 'localhost',
         # 'PORT': '',
         'ENGINE': 'django.db.backends.sqlite3',
@@ -193,10 +193,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = "proshirahman@gmail.com"
-# EMAIL_HOST_PASSWORD = "kafljagpgiyvwpmv"
-# EMAIL_HOST_USER = "emonrahman186@gmail.com"
-# EMAIL_HOST_PASSWORD = "allah...123"
+EMAIL_HOST_USER = "proshirahman@gmail.com"
+EMAIL_HOST_PASSWORD = "kafljagpgiyvwpmv"
 
 OLD_PASSWORD_FIELD_ENABLED = True
 
