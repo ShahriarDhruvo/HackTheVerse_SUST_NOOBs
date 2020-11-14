@@ -66,7 +66,7 @@ export default class MyRooms extends Component {
                     <Button
                       variant="outlined"
                       color="primary"
-                      style={{ float: "right" }}
+                      style={{ float: "right", marginBottom:"10px" }}
                     >
                       Enter
                     </Button>
@@ -81,7 +81,7 @@ export default class MyRooms extends Component {
       return (
         <Container className="dept" fluid>
           <h1 className="dept__name">My Rooms</h1>
-          <CardColumns>{courselists}</CardColumns>
+          <CardColumns className="container">{courselists}</CardColumns>
         </Container>
       );
     }
