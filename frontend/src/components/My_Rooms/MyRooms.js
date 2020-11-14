@@ -53,27 +53,23 @@ export default class MyRooms extends Component {
       if(this.state.rooms){
         courselists = this.state.rooms.map((item) => (
           <div key={item.id}>
-              <CardColumns>
-                <Card className="course">
-                  <Card.Body>
-                    <Card.Title className="course__name">
-                      {item.course.split(",")[0]}
-                    </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {item.course.split(",")[1]}
-                    </Card.Subtitle>
-                      <div>
-                        <Link to={`/rooms/${item.id}`}>
-                          <Button variant="outline-primary">
-                            Enter
-                          </Button>
-                        </Link>
-                      </div>
-                  </Card.Body>
-                </Card>
-              </CardColumns>
+            <Card className="course">
+              <Card.Body>
+                <Card.Title className="course__name">
+                  {item.course.split(",")[0]}
+                </Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {item.course.split(",")[1]}
+                </Card.Subtitle>
+                <div>
+                  <Link to={`/rooms/${item.id}`}>
+                    <Button variant="outline-primary">Enter</Button>
+                  </Link>
+                </div>
+              </Card.Body>
+            </Card>
           </div>
-      ));
+        ));
   }
 
       return (
