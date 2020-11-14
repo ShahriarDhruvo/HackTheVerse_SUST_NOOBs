@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";.
 import Unity, { UnityContent } from "react-unity-webgl";
 
 const CellSimulation = () => {
@@ -14,4 +14,4 @@ const CellSimulation = () => {
     );
 };
 
-export default CellSimulation;
+export default CellSimulation;*/
