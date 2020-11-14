@@ -191,6 +191,7 @@ export default class Home extends Component {
         let deptcoursel;
         if (Object.keys(this.state.dept).length > 0) {
             deptcoursel = this.state.dept.map((iitem, i) => (
+            this.state.rooms[iitem.id] ? (
               <div key={iitem.id}>
                 <h3 className="dept__name">{iitem.name}</h3>
                 <style>{cssstyle}</style>
@@ -242,7 +243,7 @@ export default class Home extends Component {
                       </div>
                     ))
                   ) : (
-                    <div></div>
+                    <p></p>
                   )}
                 </Slider>
                 <div className="d-flex justify-content-center">
@@ -251,51 +252,11 @@ export default class Home extends Component {
                   </Button>
                 </div>
               </div>
+              ) : (<p>
+
+              </p>)
             ));
         }
-
-        /*let deptcoursel_authenticate;
-        if(localStorage.getItem('dept_id')){
-            let dept_id = localStorage.getItem('dept_id');
-            if(this.state.rooms[dept_id]) deptcoursel_authenticate = (
-              <div>
-                <style>{cssstyle}</style>
-                <h3 className="dept__name">
-                  {localStorage.getItem("dept_name")}
-                </h3>
-                <Slider {...settings}>
-                  {this.state.rooms[dept_id].map((item) => (
-                    <div key={item}>
-                      <Card border="primary" className="course">
-                        <Card.Body>
-                          <Card.Title className="course__name">
-                            {item.course.split(",")[0]}
-                          </Card.Title>
-                          <Card.Subtitle className="text-muted">
-                            {item.course.split(",")[1]}
-                          </Card.Subtitle>
-                          <Button
-                            variant="outlined"
-                            color="primary"
-                            style={{ float: "right" }}
-                          >
-                            Enroll
-                          </Button>{" "}
-                          EDIT
-                        </Card.Body>
-                      </Card>
-                    </div>
-                  ))}
-                </Slider>
-                <div className="d-flex justify-content-center">
-                  <Button color="primary" style={{ marginTop: "40px" }}>
-                    <Link to={`/homerooms/${localStorage.getItem("dept_id")}`}>
-                      See More
-                    </Link>
-                  </Button>
-                </div>
-            )
-        }*/
         
 
         return (

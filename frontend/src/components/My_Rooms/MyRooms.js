@@ -3,8 +3,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { CardColumns } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
-import { CardGroup } from "react-bootstrap";
-import {Link,useLocation, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 const axios = require("axios");
 
 export default class MyRooms extends Component {
