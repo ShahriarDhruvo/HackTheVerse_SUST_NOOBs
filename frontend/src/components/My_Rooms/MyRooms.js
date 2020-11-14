@@ -8,45 +8,45 @@ import {Link,useLocation, useParams} from "react-router-dom";
 const axios = require("axios");
 
 export default class MyRooms extends Component {
+    constructor(props) {
+        super(props);
 
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       invalid: false,
-       rooms: [],
-       rooms_length: null,
-       enrolled_rooms_id : []
+        this.state = {
+            invalid: false,
+            rooms: [],
+            rooms_length: null,
+            enrolled_rooms_id: [],
+        };
     }
-  }
 
-  async componentDidMount() {
-    let config = {
-      headers: {
-          "Content-Type": "application/json",
-      },
-  };
-    const fetchcourses = async() => {
-        let endpoint = `/api/v1/rooms/user_room_list/`;
-        await axios.get(endpoint, config)
-        .then((response) => {
-          let tmparray = [];
-          
-          for (var j = 0; j < response.data.length; j++) {
-            tmparray.push(response.data[j]);
-          }
+    async componentDidMount() {
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+        const fetchcourses = async () => {
+            let endpoint = `/api/v1/rooms/user_room_list/`;
+            await axios
+                .get(endpoint, config)
+                .then((response) => {
+                    let tmparray = [];
 
-          this.setState({
-            rooms: tmparray,
-            rooms_length: response.data.length,
-          })
-        })
-        .catch((err)=>{
-          console.log(err)
-        });
-      }
+                    for (var j = 0; j < response.data.length; j++) {
+                        tmparray.push(response.data[j]);
+                    }
+
+                    this.setState({
+                        rooms: tmparray,
+                        rooms_length: response.data.length,
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
         await fetchcourses();
-  }
+    }
 
     render() {
       let courselists;

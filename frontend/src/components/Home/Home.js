@@ -7,7 +7,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Header from "../Header/Header";
-import LoadingScreen from "../generic/LoadingScreen";
 import { Link } from "react-router-dom";
 const axios = require("axios");
 
@@ -129,11 +128,6 @@ export default class Home extends Component {
 
     room_enroll(room_id) {
             if(localStorage.getItem('status') == 2){
-                let config = {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                };
                 let body = new FormData()
                 let endpoint = `/api/v1/rooms/pending_requests/${room_id}/create/`
                 axios
@@ -250,7 +244,7 @@ export default class Home extends Component {
             ));
         }
 
-        let deptcoursel_authenticate;
+        /*let deptcoursel_authenticate;
         if(localStorage.getItem('dept_id')){
             let dept_id = localStorage.getItem('dept_id');
             if(this.state.rooms[dept_id]) deptcoursel_authenticate = (
@@ -290,9 +284,8 @@ export default class Home extends Component {
                     </Link>
                   </Button>
                 </div>
-              </div>
-            );
-        }
+            )
+        }*/
         
 
         return (
