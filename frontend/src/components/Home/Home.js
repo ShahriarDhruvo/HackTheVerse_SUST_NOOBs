@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 import "./Home.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -47,7 +47,7 @@ export default class Home extends Component {
                     });
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
         };
         await fetchdept();
@@ -71,7 +71,7 @@ export default class Home extends Component {
                         });
                     })
                     .catch((err) => {
-                        console.log(err);
+                        //console.log(err);
                     });
             }
         };
@@ -82,19 +82,19 @@ export default class Home extends Component {
                 .get(endpoint2, config)
                 .then((response) => {
                     let tmprooms = [];
-                    
-                    for(let k=0; k<response.data.length; k++) {
-                        tmprooms.push(response.data[k].id)
+
+                    for (let k = 0; k < response.data.length; k++) {
+                        tmprooms.push(response.data[k].id);
                     }
                     this.setState({
                         enrolled_rooms_id: [
                             ...this.state.enrolled_rooms_id,
-                            ...tmprooms
-                        ]
+                            ...tmprooms,
+                        ],
                     });
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
         };
         await fetchrooms();
@@ -109,35 +109,35 @@ export default class Home extends Component {
                 "Content-Type": "application/json",
             },
         };
-        const fetch_dept_name = async() => {
-            let endpoint3 = `/api/v1/university/departments/details/${localStorage.getItem('dept_id')}/`
+        const fetch_dept_name = async () => {
+            let endpoint3 = `/api/v1/university/departments/details/${localStorage.getItem(
+                "dept_id"
+            )}/`;
             await axios
-            .get(endpoint3, config)
-            .then((response) => {
-                localStorage.setItem('dept_name',response.data[0].name)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-        }
+                .get(endpoint3, config)
+                .then((response) => {
+                    localStorage.setItem("dept_name", response.data[0].name);
+                })
+                .catch((err) => {
+                    // console.log(err)
+                });
+        };
 
-        if(localStorage.getItem("isAuthenticated")){
+        if (localStorage.getItem("isAuthenticated")) {
             await fetch_dept_name();
         }
     }
 
     room_enroll(room_id) {
-            if(localStorage.getItem('status') == 2){
-                let body = new FormData()
-                let endpoint = `/api/v1/rooms/pending_requests/${room_id}/create/`
-                axios
+        if (localStorage.getItem("status") == 2) {
+            let body = new FormData();
+            let endpoint = `/api/v1/rooms/pending_requests/${room_id}/create/`;
+            axios
                 .post(endpoint, body)
-                .then((response) => {
-                    
-                })
+                .then((response) => {})
                 .catch((err) => {
-                    console.log(err)
-                })
+                    //console.log(err)
+                });
         }
     }
 
@@ -191,73 +191,109 @@ export default class Home extends Component {
         let deptcoursel;
         if (Object.keys(this.state.dept).length > 0) {
             deptcoursel = this.state.dept.map((iitem, i) => (
-            this.state.rooms[iitem.id] ? (
-              <div key={iitem.id}>
-                <h3 className="dept__name">{iitem.name}</h3>
-                <style>{cssstyle}</style>
-                <Slider {...settings}>
-                  {this.state.rooms[iitem.id] ? (
-                    this.state.rooms[iitem.id].map((item) => (
-                      <div key={item.id}>
-                        <Card className="course" border="primary">
-                          <Card.Body>
-                            <Card.Title className="course__name">
-                              {item.course.split(",")[0]}
-                            </Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">
-                              {item.course.split(",")[1]}
-                            </Card.Subtitle>
-                            {this.state.enrolled_rooms_id.includes(item.id) &&
-                            localStorage.getItem("isAuthenticated") ? (
-                              <div>
-                                <Link to={`rooms/${item.id}`}>
-                                  <Button
-                                    variant="outlined"
+                <div key={iitem.id}>
+                    {this.state.rooms[iitem.id] ? (
+                        <div>
+                            <h3 className="dept__name">{iitem.name}</h3>
+                            <style>{cssstyle}</style>
+                            <Slider {...settings}>
+                                {this.state.rooms[iitem.id] ? (
+                                    this.state.rooms[iitem.id].map((item) => (
+                                        <div key={item.id}>
+                                            <Card
+                                                className="course"
+                                                border="primary"
+                                            >
+                                                <Card.Body>
+                                                    <Card.Title className="course__name">
+                                                        {
+                                                            item.course.split(
+                                                                ","
+                                                            )[0]
+                                                        }
+                                                    </Card.Title>
+                                                    <Card.Subtitle className="mb-2 text-muted">
+                                                        {
+                                                            item.course.split(
+                                                                ","
+                                                            )[1]
+                                                        }
+                                                    </Card.Subtitle>
+                                                    {this.state.enrolled_rooms_id.includes(
+                                                        item.id
+                                                    ) &&
+                                                    localStorage.getItem(
+                                                        "isAuthenticated"
+                                                    ) ? (
+                                                        <div>
+                                                            <Link
+                                                                to={`rooms/${item.id}`}
+                                                            >
+                                                                <Button
+                                                                    variant="outlined"
+                                                                    color="primary"
+                                                                    style={{
+                                                                        float:
+                                                                            "right",
+                                                                    }}
+                                                                >
+                                                                    Enter
+                                                                </Button>
+                                                            </Link>
+                                                        </div>
+                                                    ) : localStorage.getItem(
+                                                          "isAuthenticated"
+                                                      ) ? (
+                                                        <Button
+                                                            variant="outlined"
+                                                            color="primary"
+                                                            style={{
+                                                                float: "right",
+                                                            }}
+                                                            onClick={() =>
+                                                                this.room_enroll(
+                                                                    item.id
+                                                                )
+                                                            }
+                                                        >
+                                                            Enroll
+                                                        </Button>
+                                                    ) : (
+                                                        <Button
+                                                            variant="outlined"
+                                                            color="primary"
+                                                            style={{
+                                                                float: "right",
+                                                            }}
+                                                        >
+                                                            Enroll
+                                                        </Button>
+                                                    )}
+                                                </Card.Body>
+                                            </Card>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p></p>
+                                )}
+                            </Slider>
+                            <div className="d-flex justify-content-center">
+                                <Button
                                     color="primary"
-                                    style={{ float: "right" }}
-                                  >
-                                    Enter
-                                  </Button>
-                                </Link>
-                              </div>
-                            ) : localStorage.getItem("isAuthenticated") ? (
-                              <Button
-                                variant="outlined"
-                                color="primary"
-                                style={{ float: "right" }}
-                                onClick={() => this.room_enroll(item.id)}
-                              >
-                                Enroll
-                              </Button>
-                            ) : (
-                              <Button
-                                variant="outlined"
-                                color="primary"
-                                style={{ float: "right" }}
-                              >
-                                Enroll
-                              </Button>
-                            )}
-                          </Card.Body>
-                        </Card>
-                      </div>
-                    ))
-                  ) : (
-                    <p></p>
-                  )}
-                </Slider>
-                <div className="d-flex justify-content-center">
-                  <Button color="primary" style={{ marginTop: "40px" }}>
-                    <Link to={`/homerooms/${iitem.id}`}>See More</Link>
-                  </Button>
+                                    style={{ marginTop: "40px" }}
+                                >
+                                    <Link to={`/homerooms/${iitem.id}`}>
+                                        See More
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    ) : (
+                        <p></p>
+                    )}
                 </div>
-              </div>
-              ) : (<p>
-
-              </p>)
             ));
         }
-        
 
         return (
             <div>
@@ -272,9 +308,7 @@ export default class Home extends Component {
                     </div>
                 ) : (
                     // enrolled courses will be shown here:
-                    <div>
-                       
-                    </div>
+                    <div></div>
                 )}
             </div>
         );

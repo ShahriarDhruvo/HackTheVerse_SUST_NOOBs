@@ -27,7 +27,7 @@ function CreateCourse() {
     const form = useRef(null);
     const [show, setShow] = useState(false);
     const [courses, setCourses] = useState(null);
-    const [select_course, set_select_course] = useState(null);
+    //const [select_course, set_select_course] = useState(null);
     //const [created_rooms, set_Created_rooms] = useState([]);
     const [errors, seterrors] = useState('')
     const handleClose = () => setShow(false);
@@ -51,11 +51,11 @@ function CreateCourse() {
                         tmpcourse.push(response.data[i]);
                     if (response.data.length) {
                         setCourses(tmpcourse);
-                        set_select_course(tmpcourse[0].id);
+                        //set_select_course(tmpcourse[0].id);
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //.log(err);
                 });
         };
         loadCourse();
@@ -93,7 +93,7 @@ function CreateCourse() {
             await axios
                 .post(endpoint, body, config)
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                 })
                 .catch((err) => {
                     seterrors('The item from this course is already created')
