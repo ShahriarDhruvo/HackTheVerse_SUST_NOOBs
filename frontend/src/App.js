@@ -19,7 +19,6 @@ import CreateCourse from "./components/CreateCourse/CreateCourse";
 import Notifications from "./components/Notifications/Notifications";
 import MyRooms from "./components/My_Rooms/MyRooms";
 import Footer from "./components/Footer/Footer";
-// import Footer from "./components/generic/Footer";
 
 library.add(fas);
 
@@ -78,7 +77,6 @@ function App() {
                     <CreateCourse />
                 </AuthenticationContextProvider>
             </SettingsContextProvider>
-            {/* <FooterPage /> */}
             <Footer />
         </Router>
     );

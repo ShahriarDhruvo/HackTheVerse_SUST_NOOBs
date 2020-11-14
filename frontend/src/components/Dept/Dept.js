@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { CardColumns } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 const axios = require("axios");
 
@@ -98,7 +98,7 @@ export default class Dept extends Component {
       if(this.state.rooms){
         courselists = this.state.rooms.map((item) => (
           <div key={item.id}>
-            <Card className="course">
+            <Card border="primary" className="course">
               <Card.Body>
                 <Card.Title className="course__name">
                   {item.course.split(",")[0]}
@@ -110,11 +110,23 @@ export default class Dept extends Component {
                 this.state.enrolled_rooms_id.includes(item.id) ? (
                   <div>
                     <Link to={`/rooms/${item.id}`}>
-                      <Button variant="outline-primary">Enter</Button>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        style={{ float: "right" }}
+                      >
+                        Enter
+                      </Button>
                     </Link>
                   </div>
                 ) : (
-                  <Button variant="outline-primary">Enroll</Button>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    style={{ float: "right" }}
+                  >
+                    Enroll
+                  </Button>
                 )}
               </Card.Body>
             </Card>
