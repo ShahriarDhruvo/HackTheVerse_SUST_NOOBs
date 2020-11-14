@@ -98,13 +98,6 @@ function CreateCourse() {
     const handle_course_create = (e, data) => {
         e.preventDefault();
         const create_room = async () => {
-            /*let value = {
-                "course": select_course,
-                "group": "",
-                "year": year,
-                "owner":localStorage.getItem('user_id'),
-                "teachers":localStorage.getItem('user_id')
-            }*/
             const body = new FormData(form.current);
             /*let body = JSON.stringify(value);*/
             console.log(body, "bal");
