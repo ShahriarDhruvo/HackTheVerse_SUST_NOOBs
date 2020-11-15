@@ -42,7 +42,7 @@ const Rooms = (props) => {
         };
 
         loadData();
-    }, [params.room_pk, handleLogOut, flag]);
+    }, [params.room_pk, handleLogOut, props, flag]);
 
     const updateFlag = () => setFlag(Math.random());
 
