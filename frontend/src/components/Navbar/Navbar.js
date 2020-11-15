@@ -13,6 +13,7 @@ import "../Authentication/Logout";
 import { AuthenticationContext } from "../../contexts/AuthenticationContext";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
+import Notifications from "../Notifications/Notifications";
 
 const Navs = () => {
     const [signInShow, setSignInShow] = React.useState(false);
@@ -103,29 +104,13 @@ const Navs = () => {
                         }
                         variant=""
                     >
-                        <NavDropdown.Item
+                        {/* <NavDropdown.Item
                             eventKey="1"
                             className="text-wrap"
                             style={{ width: "16rem" }}
-                        >
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Facilis, voluptatem voluptate consequuntur,
-                            velit aliquid inventore veniam a fuga et optio qui
-                            enim totam deleniti! Delectus iure non quibusdam at
-                            quo nihil quas repudiandae perspiciatis ab illum,
-                            quis nemo inventore repellendus dolorum possimus
-                            quisquam, iusto quam sunt eius animi sequi repellat
-                            veritatis facilis. Numquam dolorem, nam dolores iste
-                            eius harum earum recusandae! Quod itaque iure velit
-                            est reiciendis praesentium autem molestias fuga
-                            aliquam. Itaque consequatur voluptate porro ut neque
-                            blanditiis ex, quasi, eaque repellendus quaerat esse
-                            iure, eum odio qui laboriosam eveniet illum facilis
-                            facere id at? Placeat, vel pariatur. Quia?
-                        </NavDropdown.Item>
-                        <NavDropdown.Item eventKey="2">
-                            Action 2
-                        </NavDropdown.Item>
+                        > */}
+                            <Notifications />
+                        {/* </NavDropdown.Item> */}
                     </NavDropdown>
                     <NavDropdown
                         alignRight={true}

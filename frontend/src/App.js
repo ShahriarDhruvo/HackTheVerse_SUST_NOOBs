@@ -18,7 +18,7 @@ import SettingsContextProvider from "./contexts/SettingsContext";
 import Navs from "./components/Navbar/Navbar";
 import Dept from "./components/Dept/Dept";
 import CreateCourse from "./components/CreateCourse/CreateCourse";
-import Notifications from "./components/Notifications/Notifications";
+// import Notifications from "./components/Notifications/Notifications";
 import MyRooms from "./components/My_Rooms/MyRooms";
 
 import CellSimulation from "./Simulations/CellSimulation";
@@ -70,11 +70,11 @@ function App() {
                             component={EmailConfirm}
                         />
 
-                        <Route
+                        {/* <Route
                             exact
                             path="/notifications"
                             component={Notifications}
-                        />
+                        /> */}
 
                         <Route
                             exact
